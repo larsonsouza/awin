@@ -1,0 +1,19 @@
+<input type="text" class="bg-transparent" style="border: 0px none; width: 200px"  readonly value="<?=$secCode?>" id="2fa"/>
+                            <span class="btn btn-sm btn-success" id="btnCopySec" >Copy 2FA Code</span>
+							
+ function copySecret() {
+            // Get the text field
+            var copyText = $("#2fa").val();
+            copyText.select();
+            copyText.setSelectionRange(0, 99999); // For mobile devices
+            navigator.clipboard.writeText(copyText.value);
+            alert("Copied the 2Fa text: " + copyText.value);
+        }
+
+
+        $("#btnCopySec").click(function() {
+            $("#2fa").select();
+            document.execCommand("copy");
+        });
+
+
